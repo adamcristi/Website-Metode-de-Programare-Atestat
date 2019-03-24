@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ro-RO">
+    <head>
+        <link type="text/css" rel="stylesheet" href="stylesheet_div&imp.css"/>
+        <title> Divide et Impera Page </title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <nav>
+            <div id="header">
+                <div id="home_button">
+                    <a href="Home_page.html"><img id="home" src="http://www.freeiconspng.com/uploads/home-icon-4.png"/></a>
+                </div>
+                <div class="pages"><a href="Backtracking_page.html"><em> Backtraking </em></a></div>
+                <div class="pages"><a id="curent" href="Div&Imp_page.html"><em> Divide et Impera </em></a></div>
+                <div class="pages"><a href="Greedy_page.html"><em> Greedy </em></a></div>
+                <div class="pages"><a href="Programare_page.html"><em> Programare dinamică </em></a></div>
+                <div class="pages"><a href="Contact_page.html"><em> Contact </em></a></div>
+                <!--<div id="bara"></div>-->
+            </div>
+            
+        </nav>
+        <div id="content">
+            <h1><em>Metoda Divide et Impera</em></h1>
+            
+              <h2><em>Prezentare generală</em></h2>
+               
+                  <p class="main_info"><em><span id="first_line">Ideea</span> (divide şi cucerește) este atribuită lui Filip al II-lea, regele Macedoniei (382-336 i.e.n.), tatăl lui Alexandru cel Mare si se referă la politica acestuia față de statele grecești.</em></p>
+            
+            <div id="chenar1">
+                
+                  <img id="highlight" src="http://files.softicons.com/download/sport-icons/pretty-office-vii-icons-by-custom-icon-design/png/256x256/Highlightmarker.png"/>
+
+                  <p class="main_info"><em><span id="first_line">În</span> <strong>programare</strong>: <strong>Divide et Impera</strong> se referă la o clasă de algoritmi care au ca principale <strong>caracteristici</strong> faptul că <strong>împart problema</strong> în subprobleme similare cu problema iniţilă, de dimensiune mai mică, care sunt <strong>rezolvate recursiv</strong> si apoi <strong>combină soluțiile</strong> pentru a crea o soluție pentru problema originală.</em></p>
+                
+                  <br>
+                
+            </div>
+            
+                  <p class="main_info"><em>Metoda Divide et Impera constă în <strong>3</strong> pași la fiecare nivel al recurenței:</em></p>
+
+                  <p class="main_info"><em><span id="first_line"><strong>Divide</strong>:</span> dacă dimensiunea datelor de intrare este prea mare pentru a rezolva problema într-o manieră directă, descompune problema în două sau mai multe subprobleme independente, similare şi de dimensiune mai mică a datelor de intrare;</em></p>
+
+                  <p class="main_info"><em><strong><span id="first_line">Impera</span> (Cucereşte)</strong>:rezolvă recursiv subproblemele identificate;</em></p>
+ 
+                  <p class="main_info"><em><span id="first_line"><strong>Combină</strong>:</span> combină soluţiile subproblemelor pentru a obţine soluţia problemei iniţiale (uneori este cuprins în primii doi paşi)</em></p>
+            
+                  <p class="main_info"><em><strong>Avantaje</strong>:</em></p>
+
+                  <p class="main_info"><em><span id="first_line">&#8226; Produce</span> algoritmi eficienți;</em></p>
+
+                  <p class="main_info"><em><span id="first_line">&#8226; Descompunerea</span> problemei în subprobleme facilitează paralelizarea algoritmului în vederea execuției sale pe mai multe procesoare.</em></p>
+
+                  <p class="main_info"><em><strong>Dezavantaje</strong>:</em></p>
+
+                  <p class="main_info"><em><span id="first_line">&#8226; Se</span> adaugă un overhead datorat recursivității (reținerea pe stivă a apelurilor funcțiilor).</em></p>
+            
+               <h3><em>Descrierea algoritmului</em></h3>
+            
+            <div id="chenar2">
+                
+                  <p><em><pre>def divide_et_impera (data):</pre></em></p>
+                
+                  <p><em><pre>     if size(data)&lt;a:</pre></em></p>
+                
+                  <p><em><pre>       {</pre></em></p>
+                
+                  <p><em><pre>         #rezova problema direct</pre></em></p>
+                 
+                  <p><em><pre>         #caz trivial</pre></em></p>
+             
+                  <p><em><pre>         return rez</pre></em></p>
+                
+                  <p><em><pre>       }</pre></em></p>
+                
+                  <p><em><pre>     #divide data în d1,d2,...,dk</pre></em></p>
+                
+                  <p><em><pre>     rez_1 = divide_et_impera(d1)</pre></em></p>
+                
+                  <p><em><pre>     rez_2 = divide_et_impera(d2)</pre></em></p>
+                
+                  <p><em><pre>     ............................</pre></em></p>
+                
+                  <p><em><pre>     rez_k = divide_et_impera(dk)</pre></em></p>
+                
+                  <p><em><pre>     # combină rezultatele</pre></em></p>
+                
+                  <p><em><pre>     return combine(rez_1,rez_2,...,rez_k)</pre></em></p>
+            </div>
+            
+                  <p class="main_info"><em><span id="first_line">Fie</span> n=size(data) şi n1,n2,…nk=size(d1), size(d2), …, size(dk)</em></p>
+            
+            <div id="inceput">
+                <p class="main_info"><em> T(n)= </em></p>
+            </div>
+            
+            <div id="bracket">
+                <p><em> { </em></p>
+            </div>
+            
+            <div id="continut"> 
+                <p><em><pre> timp ProblemaTriviala, daca size(data)&lt;a</pre></em></p>
+                <p><em><pre> T(n1)+T(n2)+...+T(nk)+timpDivizare+timpCombinare, altfel</pre></em></p>
+            </div>
+            
+              <h2><em>Exemple</em></h2>
+            
+               <h3><em>1. Să se determine valoarea maximă dintr-un sir de n numere intregi.</em></h3>
+            
+                  <p class="main_info"><em><span id="first_line"> &#8226; Divide:</span> (n/2,n/2);</em></p>
+
+                  <p class="main_info"><em><span id="first_line"> &#8226; Cucereşte:</span> determină valoarea maximă in cele două subliste;</em></p>
+
+                  <p class="main_info"><em><span id="first_line"> &#8226; Combină:</span> determină maximul global;</em></p>
+            
+            <div id="chenar3">
+                
+                <p><em><pre>#include &lt;iostream&gt;              // Valoarea Maximă</pre></em></p>
+
+                <p><em><pre>using namespace std;</pre></em></p>
+                
+                <p><em><pre>int v[10],n;</pre></em></p>
+
+                <p><em><pre>int maxim(int i,int j)</pre></em></p>
+                
+                <p><em><pre>  {</pre></em></p>
+                
+                <p><em><pre>    int a=0,b=0;</pre></em></p>
+                
+                <p><em><pre>    if(i==j) return v[i];</pre></em></p>
+                
+                <p><em><pre>     else</pre></em></p>
+                
+                <p><em><pre>      {</pre></em></p>
+                
+                <p><em><pre>        a=maxim(i,(i+j)/2);</pre></em></p>
+                
+                <p><em><pre>        b=maxim((i+j)/2+1,j);</pre></em></p>
+                
+                <p><em><pre>        if(a>b) return a;</pre></em></p>
+                
+                <p><em><pre>          else return b;</pre></em></p>
+                
+                <p><em><pre>      }</pre></em></p>
+                
+                <p><em><pre>  }</pre></em></p>
+
+                <p><em><pre>int main()</pre></em></p>
+                
+                <p><em><pre>  {</pre></em></p>
+                
+                <p><em><pre>   cout&lt;&lt;"n="; cin&gt;&gt;n;</pre></em></p>
+                 
+                <p><em><pre>   for(int i=1;i&lt;=n;i++)</pre></em></p>
+                
+                <p><em><pre>    {</pre></em></p>
+                
+                <p><em><pre>      cout&lt;&lt;"v["&lt;&lt;i&lt;&lt;"]=";</pre></em></p>
+                
+                <p><em><pre>      cin&gt;&gt;v[i];</pre></em></p>
+                
+                <p><em><pre>    }</pre></em></p>
+                
+                <p><em><pre>   cout&lt;&lt;"max="&lt;&lt;maxim(1,n);</pre></em></p>
+                
+                <p><em><pre>   return 0;</pre></em></p>
+                
+                <p><em><pre>  }</pre></em></p>
+            </div>
+            
+                  <p class="main_info"><em><span id="first_line">T(n)</span> = 2 * T(n/2) + Θ(1) , T(n)=2n-1&#8712;Θ(n)&#8658;<strong>Complexitatea</strong> acceaşi cu algoritmul “clasic”!</em></p>
+            
+               <h3><em>2.Căutare binară. Să se determine poziţia pe care este găsit unui număr într-o listă de numere odonată crescător.</em></h3>
+            
+                  <p class="main_info"><em><span id="first_line">&#8226; Divide:</span> determină mijlocul listei;</em></p>
+
+                  <p class="main_info"><em><span id="first_line">&#8226; Cucereşte:</span> cauta recursiv în una din cele două jumătăţi;</em></p>
+
+                  <p class="main_info"><em><span id="first_line">&#8226; Combină:</span> nu există, deoarece soluţia problemei iniţiale a fost obţinută simultan cu etapele de descompunere;</em></p>
+            
+            <div id="chenar4">
+                
+                  <p><em><pre>#include &lt;iostream&gt;           //Căutarea binară</pre></em></p>
+
+                  <p><em><pre>using namespace std;</pre></em></p>
+                
+                  <p><em><pre>int v[10],n,x;</pre></em></p>
+
+                  <p><em><pre>int cautare(int li,int ls)</pre></em></p>
+                
+                  <p><em><pre>  {</pre></em></p>
+                
+                  <p><em><pre>    if(li&lt;=ls)</pre></em></p>
+                
+                  <p><em><pre>     {</pre></em></p>
+                
+                  <p><em><pre>       int mij=(li+ls)/2;</pre></em></p>
+                
+                  <p><em><pre>       if(v[mij]==x) return mij;</pre></em></p>
+                
+                  <p><em><pre>       else</pre></em></p>
+                
+                  <p><em><pre>         {</pre></em></p>
+                
+                  <p><em><pre>           if(x&lt;v[mij]) cautare(li,mij-1);</pre></em></p>
+                
+                  <p><em><pre>            else cautare(mij+1,ls);</pre></em></p>
+                
+                  <p><em><pre>         }</pre></em></p>
+                
+                  <p><em><pre>     }</pre></em></p>
+                
+                  <p><em><pre>    else return -1;</pre></em></p>
+                 
+                  <p><em><pre>  }</pre></em></p>
+
+                  <p><em><pre>int main()</pre></em></p>
+                
+                  <p><em><pre>  {</pre></em></p>
+                
+                  <p><em><pre>    cout&lt;&lt;"n="; cin&gt;&gt;n;</pre></em></p>
+                
+                  <p><em><pre>    for(int i=1;i&lt;=n;i++)</pre></em></p>
+                
+                  <p><em><pre>     {</pre></em></p>
+                
+                  <p><em><pre>       cout&lt;&lt;"v["&lt;&lt;i&lt;&lt;"]=";</pre></em></p>
+                
+                  <p><em><pre>       cin&gt;&gt;v[i];</pre></em></p>
+                
+                  <p><em><pre>     }</pre></em></p>
+                
+                  <p><em><pre>    cout&lt;&lt;"Numar cautat:"; cin&gt;&gt;x;</pre></em></p>
+                
+                  <p><em><pre>    int a=cautare(1,n);</pre></em></p>
+                
+                  <p><em><pre>     if(a!=-1) cout&lt;&lt;"Numarul cautat se afla pe pozitia: "&lt;&lt;a;</pre></em></p>
+                
+                  <p><em><pre>      else cout&lt;&lt;"Numarul cautat nu exista!";</pre></em></p>
+                
+                  <p><em><pre>   return 0;</pre></em></p>
+                
+                  <p><em><pre>  }</pre></em></p>
+                
+            </div>
+            
+                  <p class="main_info"><em><span id="first_line">T(n)</span> = T(n/2) + Θ(1) , T(n)&#8712;Θ(log2n)</em></p>
+            
+                  <p class="main_info"><em><strong><span id="first_line">Mai</span> eficeint decat cautarea secvenţială</strong>, T(n)&#8712;Θ(n)</em></p>
+            
+               <h3><em>3. Să se determine	X^n , unde n&ge;1.</em></h3>
+            
+                  <p class="main_info"><em><span id="first_line">&#8226; Divide:</span> calculează n/2;</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">&#8226; Cucereşte:</span> determină recursiv	X^(n/2);</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">&#8226; Combină:</span> 1 sau 2 înmulţiri;</em></p>
+            
+            <div id="chenar5">
+                
+                  <p><em><pre>#include &lt;iostream&gt;      //Ridicarea la putere</pre></em></p>
+
+                  <p><em><pre>using namespace std;</pre></em></p>
+                
+                  <p><em><pre>int x,y;</pre></em></p>
+                
+                  <p><em><pre>int putere(int a,int b)</pre></em></p>
+                
+                  <p><em><pre>  {</pre></em></p>
+                
+                  <p><em><pre>    if(b==0) return 1;</pre></em></p>
+                
+                  <p><em><pre>     else if(b==1) return a;</pre></em></p>
+                
+                  <p><em><pre>            else</pre></em></p>
+                
+                  <p><em><pre>              {</pre></em></p>
+                
+                  <p><em><pre>                if(b%2==0) return putere(a,b/2)*putere(a,b/2);</pre></em></p>
+                
+                  <p><em><pre>                 else return a*putere(a,b/2)*putere(a,b/2);</pre></em></p>
+                
+                  <p><em><pre>              }</pre></em></p>
+                
+                  <p><em><pre>  }</pre></em></p>
+
+                  <p><em><pre>int main()</pre></em></p>
+                
+                  <p><em><pre>  {</pre></em></p>
+                
+                  <p><em><pre>    cout&lt;&lt;"x="; cin&gt;&gt;x;</pre></em></p>
+                
+                  <p><em><pre>    cout&lt;&lt;"y="; cin&gt;&gt;y;</pre></em></p>
+                
+                  <p><em><pre>    cout^lt;&lt;x&lt;&lt;" la puterea "&lt;&lt;y&lt;&lt;" este: "&lt;&lt;putere(x,y);</pre></em></p>
+                
+                  <p><em><pre>   return 0;</pre></em></p>
+                
+                  <p><em><pre>  }</pre></em></p>
+                
+            </div>
+            
+                  <p class="main_info"><em><span id="first_line"><strong>Complexitate</strong>:</span> T(n) = T(n/2) + Θ(1) = Θ(log2n)</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">Algoritm</span> “clasic”: Complexitate: Θ(n)</em></p>
+            
+               <h3><em>4. Sortare prin interclasare (Merge Sort)</em></h3>
+            
+                  <p class="main_info"><em><span id="first_line">&#8226;	Divide:</span> împarte lista în două subliste;</em></p>
+
+                  <p class="main_info"><em><span id="first_line">&#8226; Cucereşte:</span> sortează recursiv cele două subliste folosind merge sort;</em></p>
+
+                  <p class="main_info"><em><span id="first_line">&#8226; Combină:</span> interclasează cele două subliste;</em></p>
+            
+                  <img id="merge_sort" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Merge_sort_algorithm_diagram.svg/618px-Merge_sort_algorithm_diagram.svg.png"/>
+            
+            <div id="chenar6">
+                
+                  <p><em><pre>#include &lt;iostream&gt;       // Merge Sort</pre></em></p>
+
+                  <p><em><pre>using namespace std;</pre></em></p>
+                
+                  <p><em><pre>int v[101],n;</pre></em></p>
+
+                  <p><em><pre>void sortare(int i,int j)</pre></em></p>
+                
+                  <p><em><pre>  {</pre></em></p>
+                
+                  <p><em><pre>    if(v[i]&gt;v[j])</pre></em></p>
+                
+                  <p><em><pre>     {</pre></em></p>
+                
+                  <p><em><pre>       int aux=v[i];</pre></em></p>
+                
+                  <p><em><pre>       v[i]=v[j];</pre></em></p>
+                
+                  <p><em><pre>       v[j]=aux;</pre></em></p>
+                
+                  <p><em><pre>     }</pre></em></p>
+                
+                  <p><em><pre>  }</pre></em></p>
+
+                  <p><em><pre>void interclasare(int inc,int mij,int sf)</pre></em></p>
+                
+                  <p><em><pre>  {</pre></em></p>
+                 
+                  <p><em><pre>    int a[101]={0},i=inc,j=mij+1,k=0;</pre></em></p>
+                
+                  <p><em><pre>    while(i&lt;=mij &amp;&amp; j&lt;=sf)</pre></em></p>
+                
+                  <p><em><pre>      {</pre></em></p>
+                
+                  <p><em><pre>        if(v[i]&lt;v[j]) a[++k]=v[i++];</pre></em></p>
+                
+                  <p><em><pre>         else a[++k]=v[j++];</pre></em></p>
+                
+                  <p><em><pre>      }</pre></em></p>
+                
+                  <p><em><pre>    while(i&lt;=mij) a[++k]=v[i++];</pre></em></p>
+                
+                  <p><em><pre>    while(j&lt;=sf) a[++k]=v[j++];</pre></em></p>
+                
+                  <p><em><pre>    k=1;</pre></em></p>
+                
+                  <p><em><pre>    for(int i=inc;i&lt;=sf;i++) v[i]=a[k++];</pre></em></p>
+                
+                  <p><em><pre>  }</pre></em></p>
+
+                  <p><em><pre>void divimp(int li,int ls)</pre></em></p>
+                
+                  <p><em><pre>  {</pre></em></p>
+                
+                  <p><em><pre>    if((ls-li)&lt;=1) sortare(li,ls);</pre></em></p>
+                
+                  <p><em><pre>     else</pre></em></p>
+                
+                  <p><em><pre>       {</pre></em></p>
+                
+                  <p><em><pre>         int m=(li+ls)/2;</pre></em></p>
+                
+                  <p><em><pre>         divimp(li,m);</pre></em></p>
+                
+                  <p><em><pre>         divimp(m+1,ls);</pre></em></p>
+                
+                  <p><em><pre>         interclasare(li,m,ls);</pre></em></p>
+                
+                  <p><em><pre>       }</pre></em></p>
+                
+                  <p><em><pre>  }</pre></em></p>
+                
+                  <p><em><pre>int main()</pre></em></p>
+                
+                  <p><em><pre>  {</pre></em></p>
+                
+                  <p><em><pre>    cout&lt;&lt;"n="; cin&gt;&gt;n;</pre></em></p>
+                
+                  <p><em><pre>    for(int i=1;i&lt;=n;i++)</pre></em></p>
+                
+                  <p><em><pre>      {</pre></em></p>
+                
+                  <p><em><pre>        cout&lt;&lt;"v["&lt;&lt;i&lt;&lt;"]=";</pre></em></p>
+                
+                  <p><em><pre>        cin&gt;&gt;v[i];</pre></em></p>
+                
+                  <p><em><pre>      }</pre></em></p>
+                
+                  <p><em><pre>     divimp(1,n);</pre></em></p>
+                
+                  <p><em><pre>     for(int i=1;i&lt;=n;i++) cout&lt;&lt;v[i]&lt;&lt;" ";</pre></em></p>
+                
+                  <p><em><pre>    return 0;</pre></em></p>
+                
+                  <p><em><pre>  }</pre></em></p>
+                
+            </div>
+            
+                  <p class="main_info"><em><span id="first_line">Merge Sort:</span> analiza <strong>complexităţii</strong> temporale</em></p>
+            
+                  <p class="main_info"><em>T(n) = 2 * T(n/2) + Θ(n)</em></p>
+
+                  <p class="main_info"><em><span id="first_line">unde:</span> 2=Numărul de subprobleme,</em></p>
+            
+                  <p class="main_info"><em><span id="first_line"> T(n/2)</span>=Dimensiunea subproblemelor,</em></p>
+
+                  <p class="main_info"><em><span id="first_line"> Θ(n)</span>=Complexitatea interclasării;</em></p>
+ 
+                  <p class="main_info"><em>T(n)&#8712;Θ(n*log2n)</em></p>
+ 
+                  <p class="main_info"><em><strong>Complexitatea</strong> spatiala: S(n)=Θ(n)</em></p>
+            
+               <h3><em>5.Sortare rapidă (Quick Sort)</em></h3>
+            
+                  <p class="main_info"><em><span id="first_line">&#8226;	Divide:</span> partiţionează şirul în două subsiruri a.î elementele din primul să fie mai mici decat elementele din al doilea;</em></p>
+
+                  <p class="main_info"><em><span id="first_line">&#8226; Cucereşte:</span> sortează recursiv cele două subşiruri;</em></p>
+
+                  <p class="main_info"><em><span id="first_line">&#8226; Combină:</span> nu există, deoarece soluţia problemei iniţiale a fost obţinută simultan cu etapele de descompunere;</em></p>
+            
+            <div id="chenar7">
+                
+                  <p><em><pre>#include &lt;iostream&gt;     //Quick Sort</pre></em></p>
+
+                  <p><em><pre>using namespace std;</pre></em></p>
+                
+                  <p><em><pre>int v[101],n;</pre></em></p>
+
+                  <p><em><pre>void poz(int li,int ls,int&amp; k)</pre></em></p>
+                
+                  <p><em><pre>  {</pre></em></p>
+                
+                  <p><em><pre>    int pivot=v[li],i=li,j=ls;</pre></em></p>
+                
+                  <p><em><pre>    while(i&lt;j)</pre></em></p>
+        
+                  <p><em><pre>      {</pre></em></p>
+                
+                  <p><em><pre>        while(v[i]&lt;=pivot &amp;&amp; i&lt;j) i++;</pre></em></p>
+                
+                  <p><em><pre>        while(v[j]&gt;=pivot &amp;&amp; j&gt;1) j--;</pre></em></p>
+                
+                  <p><em><pre>        if(i&lt;j) swap(v[i],v[j]);</pre></em></p>
+                
+                  <p><em><pre>      }</pre></em></p>
+                
+                  <p><em><pre>    k=j;</pre></em></p>
+                
+                  <p><em><pre>    swap(v[li],v[j]);</pre></em></p>
+                
+                  <p><em><pre>  }</pre></em></p>
+
+                  <p><em><pre>void quick(int li,int ls)</pre></em></p>
+                
+                  <p><em><pre>  {</pre></em></p>
+                
+                  <p><em><pre>    int k=0;</pre></em></p>
+                
+                  <p><em><pre>    if(li&lt;ls)</pre></em></p>
+                
+                  <p><em><pre>      {</pre></em></p>
+                
+                  <p><em><pre>        poz(li,ls,k);</pre></em></p>
+                
+                  <p><em><pre>        quick(li,k);</pre></em></p>
+                
+                  <p><em><pre>        quick(k+1,ls);</pre></em></p>
+                
+                  <p><em><pre>      }</pre></em></p>
+                
+                  <p><em><pre>  }</pre></em></p>
+
+                  <p><em><pre>int main()</pre></em></p>
+                  
+                 <p><em><pre>  {</pre></em></p>
+                
+                  <p><em><pre>    cout&lt;&lt;"n="; cin&gt;&gt;n;</pre></em></p>
+                
+                  <p><em><pre>    for(int i=1;i&lt;=n;i++)</pre></em></p>
+                
+                  <p><em><pre>      {</pre></em></p>
+                
+                  <p><em><pre>        cout&lt;&lt;"v["&lt;&lt;i&lt;&lt;"]=";</pre></em></p>
+                
+                  <p><em><pre>        cin&gt;&gt;v[i];</pre></em></p>
+                
+                  <p><em><pre>      }</pre></em></p>
+                
+                  <p><em><pre>    quick(1,n);</pre></em></p>
+                
+                  <p><em><pre>    for(int i=1;i&lt;=n;i++) cout&lt;&lt;v[i]&lt;&lt;" ";</pre></em></p>
+                
+                  <p><em><pre>   return 0;</pre></em></p>
+                
+                  <p><em><pre>  }</pre></em></p>
+                
+            </div>
+            
+            <p class="main_info"><em><span id="first_line"><strong>Complexitate</strong>:</span> T(n) = 2 * T(n/2) + Θ(n) apartine de Θ(n*log2n);</em></p> 
+               
+        </div>
+        <div id="curiosity">
+            <p id="titlu"><em>  Știați că... </em></p>
+            <p id="aux_info"><em> în 1982 numele limbajului a fost schimbat de la C cu clase la C++? Au fost adăugate noi facilități, inclusiv funcții virtuale, supraîncărcarea operatorilor și a funcțiilor, referințe, constante, alocare dinamică, un control al tipului mai puternic și noua variantă de comentariu pe un singur rând (liniile care încep cu caracterele '//'). </em></p>
+        </div>
+    </body>
+</html>

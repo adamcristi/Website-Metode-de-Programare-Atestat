@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ro-RO">
+    <head>
+        <link type="text/css" rel="stylesheet" href="stylesheet_programare.css"/>
+        <title> Programare dinamica Page </title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <nav>
+            <div id="header">
+                <div id="home_button">
+                    <a href="Home_page.html"><img id="home" src="http://www.freeiconspng.com/uploads/home-icon-4.png"/></a>
+                </div>
+                <div class="pages"><a href="Backtracking_page.html"><em> Backtraking </em></a></div>
+                <div class="pages"><a href="Div&Imp_page.html"><em> Divide et Impera </em></a></div>
+                <div class="pages"><a href="Greedy_page.html"><em> Greedy </em></a></div>
+                <div class="pages"><a id="curent" href="Programare_page.html"><em> Programare dinamică </em></a></div>
+                <div class="pages"><a href="Contact_page.html"><em> Contact </em></a></div>
+                <!--<div id="bara"></div>-->
+            </div>
+        </nav>
+        <div id="content">
+        
+            <h1><em>Programarea Dinamică</em></h1>
+              
+              <h2><em>Prezentare generală</em></h2>
+            
+                  <p class="main_info"><em><span id="first_line">Programarea</span> dinamică rezolvă problemele prin descompunerea lor în subprobleme şi prin combinarea rezolvărilor acestora (termenul „programare" se referă aici la o metodă tabulară). Spre deosebire de divide et impera, care considera că subproblemele sunt independente, programarea dinamică se aplică atunci când subproblemele nu sunt independente. Într-un astfel de caz, divide et impera ar efectua calcule redundante, rezolvând fiecare subproblemă ca şi când nu ar mai fi întâlnit-o. Programarea dinamică, însă, salvează rezultatul fiecărei subprobleme într-o tabelă, evitând astfel rezolvarea redundantă a aceleiaşi probleme.</em></p>
+            
+            <div id="chenar1">
+                
+                  <img id="highlight" src="http://files.softicons.com/download/sport-icons/pretty-office-vii-icons-by-custom-icon-design/png/256x256/Highlightmarker.png"/>
+                
+                  <p class="main_info"><em><strong><span id="first_line">Programarea</span> dinamică</strong> se aplică în general problemelor de optimizare, atunci când dorim să determinăm rapid soluţia optimă pentru o problemă. De fapt, aplicând această tehnică determinăm <strong>una</strong> din soluţiile optime, problema putând avea mai multe soluţii optime.</em></p>
+                
+                  <br>
+                
+            </div>
+            
+                  <p class="main_info"><em>Aplicarea acestei tehnici de programare poate fi descompusă în următoarea <strong>secvenţă de paşi</strong>:</em></p>
+
+                  <p class="main_info"><em><span id="first_line">1.</span>	Descoperirea structurii şi "măsurii" pe care o are o soluţie optimă.</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">2.</span>	Definirea recursivă a valorii care caracterizează o soluţie optimă.</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">3.</span>	Calcularea "de jos în sus" a acestei valori.</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">4.</span>	Construirea soluţiei optime pornind de la calculele efectuate anterior.</em></p>
+
+                  <p class="main_info"><em><span id="first_line">Primii</span> trei paşi reprezintă baza programării dinamice. Dacă trebuie doar să aflăm doar valoarea soluţiei optime, ultimul pas nu mai este necesar. De aceea, pentru cazul în care dorim să determinăm şi soluţia optimă poate fi nevoie de construirea unor structuri de date suplimentare.</em></p>
+            
+              <h2><em>Cel Mai Lung Subşir Ordonat</em></h2>
+            
+                  <p class="main_info"><em><span id="first_line">O</span> să exemplificăm această tehnică prin rezolvarea următoarei probleme: care este cel mai lung subşir ordonat crescător al unui şir oarecare. Este evident că „măsura" soluţiei optime este dată de lungimea subşirului. Să vedem în continuare cum putem calcula această lungime.</em></p>
+                  <p class="main_info"><em><span id="first_line">Să</span> presupunem că primul element al acestui subşir se află pe poziţia i şi că lungimea subşirului este x. Este evident că cel mai mare subşir ordonat crescător care se găseşte în dreapta lui i nu poate avea lungime mai mare decât x. În plus, elementul aflat pe poziţia i este mai mic sau egal decât primul element al unui subşir ordonat crescător de lungime x – 1, aflat în dreapta lui i. Deci, pentru a calcula lungimea subşirului care începe cu elementul de pe poziţia i, trebuie mai întâi să calculăm lungimea celui mai lung subşir din dreapta lui, subşir al cărui prim element este mai mare sau egal decât elementul de pe poziţia i. Dar această lungime o putem determina în acelaşi mod. Prin urmare avem următoarea formulă de recurenţă:</em></p>
+            
+                  <p class="main_info"><em><pre>                                                                       <span id="caracteristici">n-1</span></pre></em></p>
+            
+                  <p class="main_info"><em><pre>                                               lungime(i) =  Max    lungime(j) +1</pre></em></p>
+            
+                  <p class="main_info"><em><pre>                                                                  <span id="caracteristici">j=i+1,v[i]&le;v[j]</span></pre></em></p>
+            
+            <div id="chenar2">
+                
+                  <p><em><pre>#include &lt;iostream&gt;</pre></em></p>
+
+                  <p><em><pre>using namespace std;</pre></em></p>
+                
+                  <p><em><pre>int n,v[21],l[21],poz_max;</pre></em></p>
+
+                  <p><em><pre>int main()</pre></em></p>
+                
+                  <p><em><pre>  {</pre></em></p>
+                
+                  <p><em><pre>     cout&lt;&lt;"n="; cin&gt;&gt;n;</pre></em></p>
+                
+                  <p><em><pre>     for(int i=1;i&lt;=n;i++)</pre></em></p>
+                
+                  <p><em><pre>       {</pre></em></p>
+                
+                  <p><em><pre>         cout&lt;&lt;"v["&lt;&lt;i&lt;&lt;"]=";</pre></em></p>
+                
+                  <p><em><pre>         cin&gt;&gt;v[i];</pre></em></p>
+                
+                  <p><em><pre>       }</pre></em></p>
+                
+                  <p><em><pre>     l[n]=1;</pre></em></p>
+                
+                  <p><em><pre>     for(int k=n-1;k&gt;=1;k--)</pre></em></p>
+                
+                  <p><em><pre>       {</pre></em></p>
+                
+                  <p><em><pre>         int maxim=0;</pre></em></p>
+                
+                  <p><em><pre>         for(int i=k+1;i&lt;=n;i++)</pre></em></p>
+                
+                  <p><em><pre>           {</pre></em></p>
+                
+                  <p><em><pre>             if(v[k]&lt;=v[i] &amp;&amp; l[i]&gt;maxim) maxim=l[i];</pre></em></p>
+                
+                  <p><em><pre>           }</pre></em></p>
+                
+                  <p><em><pre>         l[k]=1+maxim;</pre></em></p>
+                
+                  <p><em><pre>       }</pre></em></p>
+                
+                  <p><em><pre>     int maxim=l[1];</pre></em></p>
+                
+                  <p><em><pre>     poz_max=1;</pre></em></p>
+                
+                  <p><em><pre>     for(int i=2;i&lt;=n;i++)</pre></em></p>
+                
+                  <p><em><pre>       {</pre></em></p>
+                
+                  <p><em><pre>         if(maxim&lt;l[i])</pre></em></p>
+                
+                  <p><em><pre>           {</pre></em></p>
+                
+                  <p><em><pre>             maxim=l[i];</pre></em></p>
+                
+                  <p><em><pre>             poz_max=i;</pre></em></p>
+                
+                  <p><em><pre>           }</pre></em></p>
+                
+                  <p><em><pre>       }</pre></em></p>
+                
+                  <p><em><pre>     cout&lt;&lt;"Lungimea maxima: "&lt;&lt;maxim&lt;&lt;endl&lt;&lt;v[poz_max]&lt;&lt;" ";</pre></em></p>
+                
+                  <p><em><pre>     for(int i=poz_max+1;i&lt;=n;i++)</pre></em></p>
+                
+                  <p><em><pre>       {</pre></em></p>
+                
+                  <p><em><pre>         if(v[i]&gt;=v[poz_max] &amp;&amp; l[i]==maxim-1)</pre></em></p>
+                
+                  <p><em><pre>           {</pre></em></p>
+                 
+                  <p><em><pre>             cout&lt;&lt;v[i]&lt;&lt;" ";</pre></em></p>
+                
+                  <p><em><pre>             maxim--;</pre></em></p>
+                
+                  <p><em><pre>           }</pre></em></p>
+                  
+                  <p><em><pre>       }</pre></em></p>
+                
+                  <p><em><pre>     return 0;</pre></em></p>
+                
+                  <p><em><pre>  }</pre></em></p>
+                
+            </div>
+            
+        </div>
+        <div id="curiosity">
+            <p id="titlu"><em>  Știați că... </em></p>
+            <p id="aux_info"><em> în 1985 a fost lansată prima ediție a cărții "The C++ Programming Language" (Limbajul de programare C++), oferind informații importante despre limbaj, care încă nu era un standard oficial. În 1989 a fost lansată versiunea 2.0 a C++. Au apărut acum moștenirea multiplă, clase abstracte, funcții statice, funcții constante și membri protected. În 1990 o altă carte a fost lansată, oferind suport pentru standarde viitoare. Ultimele adăugări includeau template-uri, excepții, spații de nume (namespace-uri) și tipul Boolean. </em></p>
+        </div>
+    </body>
+</html>

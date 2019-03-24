@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ro-RO">
+    <head>
+        <link type="text/css" rel="stylesheet" href="stylesheet_greedy.css"/>
+        <title> Greedy Page </title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <nav>
+            <div id="header">
+                <div id="home_button">
+                    <a href="Home_page.html"><img id="home" src="http://www.freeiconspng.com/uploads/home-icon-4.png"/></a>
+                </div>
+                <div class="pages" ><a href="Backtracking_page.html"><em> Backtraking </em></a></div>
+                <div class="pages"><a href="Div&Imp_page.html"><em> Divide et Impera </em></a></div>
+                <div class="pages"><a id="curent" href="Greedy_page.html"><em> Greedy </em></a></div>
+                <div class="pages"><a href="Programare_page.html"><em> Programare dinamică </em></a></div>
+                <div class="pages"><a href="Contact_page.html"><em> Contact </em></a></div>
+                <!--<div id="bara"></div>-->
+            </div>
+        </nav>
+        <div id="content">
+            <h1><em>Metoda Greedy</em></h1>
+            
+              <h2><em>Descriere</em></h2>
+            
+            <div id="chenar1">
+                
+                  <img id="highlight" src="http://files.softicons.com/download/sport-icons/pretty-office-vii-icons-by-custom-icon-design/png/256x256/Highlightmarker.png"/>
+                 
+                <p class="main_info"><em><strong><span id="first_line"> Metoda</span> Greedy</strong> este una din cele mai directe tehnici de proiectare a algoritmilor care se aplică la o varietate largă de probleme. În general,această metodă se aplică problemelor de optimizare. Specificul acestei metode constă în faptul că se construiește soluția optimă pas cu pas,la fiecare pas fiind selectat(sau „inghitit”) în soluție elementul care pare „cel mai bun”la momentul respectiv, în speranța că va duce la soluție optimă globală.</em></p>
+                
+            </div>
+            
+              <h2><em>Prezentare</em></h2>
+             
+                  <p class="main_info"><em><span id="first_line"> Se</span> dă o mulțime A cu n elemente și se cere să se determine o submulțime a sa (B) care satisface anumite restricții. Această submulțime se numește soluție posibilă. Se cere să se determine o soluție posibilă care fie să maximizeze fie să minimizeze o anumită funcție obiectiv dată. Această soluție posibilă se numește soluție optimă.</em></p>
+            
+                  <p class="main_info"><em><strong> Metoda Greedy</strong> lucrează în pași astfel:</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">1.</span> Mulțimea B este vidă la început;</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">2.</span> Se alege un element din A care pare a fi soluția optimă la pasul i;</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">3.</span> Se verifică dacă elementul ales poate fi adăugat la mulțimea soluțiilor, dacă da atunci va fi adăugat;</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">4.</span> Procedeul continuă astfel, repetitiv, până când au fost determinate toate elementele din mulțimea soluțiilor;</em></p>
+  
+                  <p class="main_info"><em><strong>Observație:</strong> Metoda Greedy nu caută să determine toate soluțiile posibile ( care ar putea fi prea numeroase) și apoi să aleagă din ele pe cea optimă, ci caută să introducă direct un element x în soluția optimă.Acest lucru duce la eficiența algorimilor Greedy,însă nu conduc în mod necesar la la o soluție optimă și nici nu este posibilă formularea unui criteriu general conform căruia să putem stabili excat dacă metoda Greedy rezolvă sau nu o anumită problemă de optimizare.Acest motiv duce la însoțirea fiecărei rezolvări prin metoda Greedy a unei demonstrații matematice(în general prin inducție). </em></p>
+            
+              <h2><em>Probleme clasice rezolvate prin metoda Greedy</em></h2>
+            
+               <h3><em>Problema planificării spectacolelor</em></h3>
+            
+                  <p class="main_info"><em>Problemă:</em></p>
+            
+                  <p class="main_info"><em><span id="first_line"> Managerul</span> artistic al unui festival trebuie să selecteze o mulțime cât mai amplă de spectacole ce pot fi jucate în singura sală pe care o are la dispoziție.Știind că i s-au propus n (n &lt;= 100) spectacole și pentru fiecare spectacol i-a fost anunțat intervalul în care se poate desfășura [Si,Fi] (Si reprezintă ora și minutul de început,iar Fi ora și minutul de final al spectacolului i),scrieți un program care să permită spectatorilor vizionarea unui număr cât mai mare de spectacole. </em></p>
+            
+            <div id="in">
+                 
+                  <p class="main_info"><em>Date de intrare:</em></p>
+                
+                  <p class="main_info"><em>5</em></p>
+                
+                  <p class="main_info"><em>12 30 16 30</em></p>
+                
+                  <p class="main_info"><em>15 0 18 0</em></p>
+                
+                  <p class="main_info"><em>10 0 18 30</em></p>
+                
+                  <p class="main_info"><em>18 0 20 45</em></p>
+                
+                  <p class="main_info"><em>12 15 13 0</em></p>
+                    
+            </div>
+            
+            <div id="out1">
+                
+                <p class="main_info"><em>Date de ieşire:</em></p>
+                
+                <p class="main_info"><em>5 2 4</em></p>
+            
+            </div>
+            
+                  <p class="main_info"><em> Soluție </em></p> 
+            
+                  <p class="main_info"><em><span id="first_line"> Ordonăm</span> spectacolele crescător după ora de final.Selectăm inițial primul spectacol(cel care se termină cel mai devreme).La fiecare pas selectăm primul spectacol neselectat,care nu se suprapune cu cele deja selectate(cele care încep după ce se termină ultimul spectacol). </em></p>
+            
+            <div id="chenar2">
+                
+                  <p><em><pre>#include &lt;iostream&gt;</pre></em></p>
+
+                  <p><em><pre>using namespace std;</pre></em></p>
+                
+                  <p><em><pre>int n,s[2][101],o[101];</pre></em></p>
+
+                  <p><em><pre>void sortare()</pre></em></p>
+                
+                  <p><em><pre>  {</pre></em></p>
+                
+                  <p><em><pre>   for(int i=1;i&lt;n;i++)</pre></em></p>
+                
+                  <p><em><pre>     {</pre></em></p>
+                
+                  <p><em><pre>       for(int j=i+1;j&lt;=n;j++)</pre></em></p>
+                
+                  <p><em><pre>         {</pre></em></p>
+                
+                  <p><em><pre>           if(s[1][o[i]]>s[1][o[j]])</pre></em></p>
+                
+                  <p><em><pre>             {</pre></em></p>
+                
+                  <p><em><pre>               int aux=o[i];</pre></em></p>
+                 
+                  <p><em><pre>               o[i]=o[j];</pre></em></p>
+                
+                  <p><em><pre>               o[j]=aux;</pre></em></p>
+                
+                  <p><em><pre>             }</pre></em></p>
+                
+                  <p><em><pre>         }</pre></em></p>
+                
+                  <p><em><pre>     }</pre></em></p>
+                
+                  <p><em><pre>  }</pre></em></p>
+
+                  <p><em><pre>int main()</pre></em></p>
+                
+                  <p><em><pre>  {</pre></em></p>
+                
+                  <p><em><pre>     cout&lt;&lt;"n="; cin&gt;&gt;n;</pre></em></p>
+                
+                  <p><em><pre>     int h1=0,m1=0,h2=0,m2=0;</pre></em></p>
+                
+                  <p><em><pre>     for(int i=1;i&lt;=n;i++)</pre></em></p>
+                
+                  <p><em><pre>      {</pre></em></p>
+                
+                  <p><em><pre>        o[i]=i;</pre></em></p>
+                
+                  <p><em><pre>        cout&lt;&lt;"ora de inceput pentru spectacolul "&lt;&lt;i&lt;&lt;" (hh mm)="; cin&gt;&gt;h1&gt;&gt;m1;</pre></em></p>
+                
+                  <p><em><pre>        s[0][i]=h1*60+m1;</pre></em></p>
+                
+                  <p><em><pre>        cout&lt;&lt;"ora de sfarsit pentru spectacolul "&lt;&lt;i&lt;&lt;" (hh mm)="; cin&gt;&gt;h2&gt;&gt;m2;</pre></em></p>
+         
+                  <p><em><pre>        s[1][i]=h2*60+m2;</pre></em></p>
+                
+                  <p><em><pre>      }</pre></em></p>
+                
+                  <p><em><pre>     sortare();</pre></em></p>
+                
+                  <p><em><pre>     cout&lt;&lt;"ordinea spectacolelor este "&lt;&lt;endl&lt;&lt;o[1]&lt;&lt;endl;</pre></em></p>
+                
+                  <p><em><pre>     int ora=s[1][o[1]];</pre></em></p>
+                
+                  <p><em><pre>     for(int i=2;i&lt;=n;i++)</pre></em></p>
+                
+                  <p><em><pre>      {</pre></em></p>
+                
+                  <p><em><pre>        if(s[0][o[i]]&gt;=ora)</pre></em></p>
+                
+                  <p><em><pre>         {</pre></em></p>
+                
+                  <p><em><pre>           cout&lt;&lt;o[i]&lt;&lt;endl;</pre></em></p>
+                
+                  <p><em><pre>           ora=s[1][o[i]];</pre></em></p>
+                
+                  <p><em><pre>         }</pre></em></p>
+                
+                  <p><em><pre>      }</pre></em></p>
+                
+                  <p><em><pre>     return 0;</pre></em></p>
+                
+                  <p><em><pre>  }</pre></em></p>
+                
+            </div>
+            
+               <h3><em>Problema rucsacului (cazul continuu)</em></h3>
+            
+                  <p class="main_info"><em>Problemă:</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">Un</span> hoț nepravazator are la dispoziție un singur rucsac cu care poate transporta o greutate maximă Gmax. Hoțul are de ales din n &lt;= 50 obiecte și,evident,intenționează să obțină un câștig maxim în urmă singurului transport pe care îl poate face. Cunoscând, pentru fiecare obiect i greutatea Gi și câștigul Ci pe care hoțul l-ar obține transportând obiectul respectiv în întregime,scrieți un program care să determine o încărcare optimă a rucsacului,în ipoteza că hoțul poate încărca în rucsac orice parte dintr-un obiect.</em></p>
+            
+            <div id="in">
+                
+                <p class="main_info"><em>Date de intrare:</em></p>
+                
+                <p class="main_info"><em>100 5</em></p>
+                
+                <p class="main_info"><em>1000 120</em></p>
+                
+                <p class="main_info"><em>500 20</em></p>
+                
+                <p class="main_info"><em>400 200</em></p>
+                
+                <p class="main_info"><em>1000 100</em></p>
+                
+                <p class="main_info"><em>25 1</em></p>
+                
+            </div>
+            
+            <div id="out2">
+                
+                <p class="main_info"><em>Date de ieşire:</em></p>
+                
+                <p class="main_info"><em>2 1</em></p>
+                
+                <p class="main_info"><em>5 1</em></p>
+                
+                <p class="main_info"><em>4 0.79</em></p>
+                
+                <p class="main_info"><em>1315</em></p>
+            
+            </div>
+            
+                  <p class="main_info"><em>Soluție:</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">Vom</span> reprezenta o soluție a problemei ca un vector x cu n componente,în care reținem pentru fiecare obiect fracțiunea încărcată în rucsac de hoț.Deci vectorull x trebuie să îndeplinească următoarele condiții:</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">1.</span> Xi &#8712; [0,1], V i &#8712; { 1,2,…n }; //unde E = aparține și V = oricare ar fi;</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">2.</span> G1 * X1 + G2 * X2 + .. + Gn * Xn &lt;= GMax;</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">3.</span> f(x) = C1 * X1 + C2 * X2 + … + Cn * Xn este maximă.</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">Ordonăm</span> obiectele descrescător după câștigul pe unitatea de greutate(valoare care constituie o măsură a eficienței transportării obiectelor). Cât timp este posibil (încap în rucsac),selectăm obiectele în întregime.Completăm rucsacul cu un fragment din următorul obiect ce nu a fost deja selectat. </em></p>
+            
+            <div id="chenar3">
+                
+                  <p><em><pre>#include &lt;iostream&gt;</pre></em></p>
+
+                  <p><em><pre>using namespace std;</pre></em></p>
+                
+                  <p><em><pre>double c[11],g[11],ef[11],gv,castig;</pre></em></p>
+                
+                  <p><em><pre>int n,ordine[11];</pre></em></p>
+
+                  <p><em><pre>void sortare()</pre></em></p>
+                
+                  <p><em><pre>  {</pre></em></p>
+                
+                  <p><em><pre>    for(int i=1;i&lt;n;i++)</pre></em></p>
+                
+                  <p><em><pre>      {</pre></em></p>
+                
+                  <p><em><pre>        for(int j=i+1;j&lt;=n;j++)</pre></em></p>
+                
+                  <p><em><pre>          {</pre></em></p>
+                
+                  <p><em><pre>            if(ef[i]&lt;ef[j])</pre></em></p>
+                
+                  <p><em><pre>             {</pre></em></p>
+                
+                  <p><em><pre>               double aux=ef[i];</pre></em></p>
+                
+                  <p><em><pre>               ef[i]=ef[j];</pre></em></p>
+                
+                  <p><em><pre>               ef[j]=aux;</pre></em></p>
+                
+                  <p><em><pre>               aux=c[i];</pre></em></p>
+                
+                  <p><em><pre>               c[i]=c[j];</pre></em></p>
+                
+                  <p><em><pre>               c[j]=aux;</pre></em></p>
+                
+                  <p><em><pre>               aux=g[i];</pre></em></p>
+                
+                  <p><em><pre>               g[i]=g[j];</pre></em></p>
+                
+                  <p><em><pre>               g[j]=aux;</pre></em></p>
+                
+                  <p><em><pre>               aux=ordine[i];</pre></em></p>
+                
+                  <p><em><pre>               ordine[i]=ordine[j];</pre></em></p>
+                
+                  <p><em><pre>               ordine[j]=aux;</pre></em></p>
+                
+                  <p><em><pre>             }</pre></em></p>
+                
+                  <p><em><pre>          }</pre></em></p>
+        
+                  <p><em><pre>      }</pre></em></p>
+                
+                  <p><em><pre>  }</pre></em></p>
+
+                  <p><em><pre>int main()</pre></em></p>
+                
+                  <p><em><pre>  {</pre></em></p>
+                
+                  <p><em><pre>     cout&lt;&lt;"Greutatea ce poate fi transportata="; cin&gt;&gt;gv;</pre></em></p>
+                
+                  <p><em><pre>     cout&lt;&lt;"Numar de obiecte="; cin&gt;&gt;n;</pre></em></p>
+                
+                  <p><em><pre>     for(int i=1;i&lt;=n;i++)</pre></em></p>
+                
+                  <p><em><pre>       {</pre></em></p>
+                
+                  <p><em><pre>         cout&lt;&lt;"c["&lt;&lt;i&lt;&lt;"]="; cin&gt;&gt;c[i];</pre></em></p>
+                
+                  <p><em><pre>         cout&lt;&lt;"g["&lt;&lt;i&lt;&lt;"]="; cin&gt;&gt;g[i];</pre></em></p>
+                
+                  <p><em><pre>         ef[i]=c[i]/g[i];</pre></em></p>
+                
+                  <p><em><pre>         ordine[i]=i;</pre></em></p>
+                 
+                  <p><em><pre>       }</pre></em></p>
+                
+                  <p><em><pre>     sortare();</pre></em></p>
+                
+                  <p><em><pre>     int i=1;</pre></em></p>
+                
+                  <p><em><pre>     while(gv&gt;0 &amp;&amp; i&lt;=n)</pre></em></p>
+                
+                  <p><em><pre>       {</pre></em></p>
+                
+                  <p><em><pre>         if(gv&gt;g[i])</pre></em></p>
+                
+                  <p><em><pre>           {</pre></em></p>
+                
+                  <p><em><pre>             cout&lt;&lt;"Obiectul "&lt;&lt;ordine[i]&lt;&lt;" "&lt;&lt;1&lt;&lt;endl;</pre></em></p>
+                
+                  <p><em><pre>             gv-=g[i];</pre></em></p>
+                
+                  <p><em><pre>             castig+=c[i];</pre></em></p>
+                
+                  <p><em><pre>           }</pre></em></p>
+                
+                  <p><em><pre>          else</pre></em></p>
+                
+                  <p><em><pre>            {</pre></em></p>
+                
+                  <p><em><pre>              cout&lt;&lt;"Obiectul "&lt;&lt;ordine[i]&lt;&lt;" "&lt;&lt;(gv/g[i])&lt;&lt;endl;</pre></em></p>
+                
+                  <p><em><pre>              castig+=c[i]*gv/g[i];</pre></em></p>
+                
+                  <p><em><pre>              gv=0;</pre></em></p>
+                
+                  <p><em><pre>            }</pre></em></p>
+                
+                  <p><em><pre>         i++;</pre></em></p>
+                
+                  <p><em><pre>       }</pre></em></p>
+                
+                  <p><em><pre>     cout&lt;&lt;"Castig total="&lt;&lt;castig;</pre></em></p>
+                
+                  <p><em><pre>     return 0;</pre></em></p>
+                
+                  <p><em><pre>  }</pre></em></p>
+            
+            </div>
+            
+                  <p class="main_info"><em>Această tehnică este folosită într-un <strong>mare număr de probleme și aplicații</strong> printre care putem aminti:</em></p>
+  
+                  <p class="main_info"><em><span id="first_line">&#8226; Minimizarea</span> timpului mediu de așteptare;</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">&#8226; Interclasarea</span> optimă a șirurilor ordonate;</em></p> 
+ 
+                  <p class="main_info"><em><span id="first_line">&#8226; Coduri</span> Huffman;</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">&#8226; Cele</span> mai scurte drumuri care pleacă din același punct;</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">&#8226; Problema</span> comis-voiajorului;</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">&#8226; Arbori</span> parțiali de cost minim;</em></p>
+            
+        </div>
+        <div id="curiosity">
+            <p id="titlu"><em>  Știați că... </em></p>
+            <p id="aux_info"><em> o dată cu evoluția limbajului C++, a evoluat și o bibliotecă standard? Prima adăugire a fost biblioteca de intrări/ieșiri (I/O stream), care oferea facilități pentru a înlocui funcțiile tradiționale C cum ar fi printf și scanf. Mai târziu, printre cele mai semnificative adăugări la biblioteca standard a fost STL (Standard Template Library) (Bibliotecă de formate standard). </em></p>
+        </div>
+    </body>
+</html>

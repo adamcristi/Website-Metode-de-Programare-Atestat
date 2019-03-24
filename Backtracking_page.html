@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<!--<html lang="ro-RO" class="horoscop-2017">-->
+<html lang="ro-RO">
+    <head>
+        <link type="text/css" rel="stylesheet" href="stylesheet_backtracking.css"/>
+        <title> Backtracking Page </title>
+	    <meta charset="UTF-8">
+    </head>
+    <body>
+        <nav>
+            <div id="header">
+                <div id="home_button">
+                    <a href="Home_page.html"><img id="home" src="http://www.freeiconspng.com/uploads/home-icon-4.png"/></a>
+                </div>
+                <div class="pages"><a id="curent" href="Backtracking_page.html"><em> Backtraking </em></a></div>
+                <div class="pages"><a href="Div&Imp_page.html"><em> Divide et Impera </em></a></div>
+                <div class="pages"><a href="Greedy_page.html"><em> Greedy </em></a></div>
+                <div class="pages"><a href="Programare_page.html"><em> Programare dinamică </em></a></div>
+                <div class="pages"><a href="Contact_page.html"><em> Contact </em></a></div>
+                <!--<div id="bara"></div>-->
+            </div>
+        </nav>
+        <div id="content">
+            <h1><em> Metoda de programare Backtracking </em></h1>
+            
+             <h2><em> Prezentare generală </em></h2>
+            
+                <p class="main_info"><em> <span id="first_line">Imaginaţi-vă</span> că astăzi este ziua vostră şi aveţi invitaţi. Aranjaţi o masă frumoasă, apoi vă gândiţi cum să vă aşezaţi invitaţii la masă. Aţi vrea să ştiţi toate posibilităţile de aşezare a invitaţilor la masă, dar realizaţi în acelaşi timp că trebuie să ţineţi seama şi de preferinţele lor. Printre invitaţi există anumite simpatii dar şi unele antipatii, de care doriţi neapărat să ţineţi seama, pentru ca petrecerea să fie o bucurie pentru toţi.</em></p>
+
+                <p class="main_info"><em><span id="first_line">Să</span> ne gândim cum procedaţi pentru a identifica toate posibilităţile de a plasa invitaţii la masă. Începeţi prin a scrie nişte cartonaşe cu numele invitaţilor.</em></p>
+
+                <p class="main_info"><em><span id="first_line">Alegeţi</span> un invitat.</em></p>
+
+                <p class="main_info"><em><span id="first_line">Pentru</span> a-l alege pe al doilea, selectaţi din mulţimea cartonaşelor rămase un alt invitat. Dacă ştiţi că cele două persoane nu se agreează, renuntaţi la cartonaşul lui şi alegeţi altul şi aşa mai departe.</em></p>
+
+                <p class="main_info"><em><span id="first_line">Se</span> poate întâmpla ca la un moment dat, când vreţi să alegeţi cartonaşul unui invitat să constataţi că nici unul dintre invitaţii rămaşi nu se potriveşte cu ultima persoană slectată până acum. Cum procedaţi?</em></p>
+
+                 <p class="main_info"><em><span id="first_line">Schimbaţi</span> ultimul invitat plasat cu un invitat dintre cei rămaşi şi încercaţi din nou, dacă nici aşa nu reuşiti, schimbaţi penultimul invitat cu alcineva şi încercaţi din nou şi aşa mai departe până când reuşiţi să plasati toţi invitaţii. Înseamnă că aţi obţinut o soluţie.</em></p>
+
+                <p class="main_info"><em><span id="first_line">Pentru</span> a obţine toate celelalte soluţii, nu vă rămâne decât să o luaţi de la început. Aveţi cam mult de muncit, iar dacă numărul invitaţilor este mare...operaţiunea devine foarte anevoioasă. Iată de ce aveţi nevoie de un calculator şi cunoştinţe de programare .</em></p>
+            
+            <div id="chenar1">
+                 <img id="highlight" src="http://files.softicons.com/download/sport-icons/pretty-office-vii-icons-by-custom-icon-design/png/256x256/Highlightmarker.png"/>
+                <p class="main_info"><em><span id="first_line"><strong> Backtracking</strong></span> este o metodă de parcurgere sistematică a spaţiului soluţiilor posibile al unei probleme.</em></p>
+
+                 <p class="main_info"><em><span id="first_line"> Este</span> o metodă generală de programare, şi poate fi adaptă pentru orice problemă pentru care dorim să obţinem toate soluţiile posibile, sau să selectăm o soluţie optimă, din mulţimea soluţiilor posibile.</em></p>
+
+                 <p class="main_info"><em><span id="first_line">Backtracking</span> este însă şi cea mai costisitoare metodă din punct de vedere al timpului de execuţie.</em></p>
+            </div>
+            
+                 <p class="main_info"><em><span id="first_line">În</span> general vom modela soluţia problemei ca un vector <strong>v=(v1,v2,v3,...,vn)</strong> în care fiecare element <strong>vk</strong> aparţine unei mulţimi finite şi ordonate <strong>Sk, cu k=1,n</strong>. În anumite cazuri particulare, mulţimile S1 ,S2, S3,...,Sn pot fi identice . Procedăm astfel:</em></p>
+            
+                 <p class="main_info"><em><span id="first_line">1.</span>	La fiecare pas k pornim de la o soluţie parţială v=( v1,v2,v3,...,vk-1) determinată până în acel moment şi încercăm să extindem această soluţie adăugând un nou element la sfârşitul vectorului.</em></p>
+
+                 <p class="main_info"><em><span id="first_line">2.</span>	Căutăm în mulţimea Sk , un nou element.</em></p>
+            
+                 <p class="main_info"><em><span id="first_line">3.</span>	Dacă există un element neselectat încă, verificăm dacă acest element îndeplineşte condiţiile impuse de problemă, numite <strong>condiţii de continuare</strong>.</em></p>
+
+                 <p class="main_info"><em><span id="first_line">4.</span>	Dacă sunt respectate condiţiile de continuare, adăugăm elementul soluţiei parţiale.</em></p>
+
+                 <p class="main_info"><em><span id="first_line">5.</span>	Verificăm dacă am obţinut o soluţie completă.</em></p>
+
+                         <p class="main_info"><em><span id="first_line">-</span> dacă am obţinut o soluţie completă o afişăm şi se reia algoritmul de la pasul 1. </em></p>
+
+                         <p class="main_info"><em><span id="first_line">-</span> dacă nu am obţinut o soluţie, k&lt;---k+1 si se reia algoritmul de la pasul 1. </em></p>
+
+                 <p class="main_info"><em><span id="first_line">6.</span>	Dacă nu sunt respectate condiţiile de continuare se reia algoritmul de la pasul 2.</em></p>
+            
+                 <p class="main_info"><em><span id="first_line">7.</span>	Dacă nu mai există nici un element neverificat în mulţimea Sk înseamnă că nu mai avem nici o posibilitate din acest moment, să construim soluţia finală aşa că trebuie să modificăm alegerile făcute în prealabil, astfel k&lt;---k-1 şi se reia problema de la pasul 1.</em></p>
+            
+                 <p class="main_info"><em><span id="first_line">Revenirea</span> în caz de insucces sau pentru generarea tuturor soluţiilor problemei, a condus la denumirea de ”backtracking” a metodei, traducerea aproximativă ar fi “revenire în urmă”.</em></p>
+            
+              <h3><em> Forma generală a unei funcţii backtracking </em></h3>
+            
+                 <p class="main_info"><em><span id="first_line">Implementarea</span> recursivă a algoritmului furnizat de metoda backtracking, este mai naturală şi deci mai uşoară. Segmentul de stivă pus la dispoziţie prin apelul funcţiei este gestionat în mod automat de sistem. Revenirea la pasul precedent se realizează în mod natural prin închiderea nivelului de stivă.</em></p>
+            
+            <div id="chenar2">
+                
+                <p><em><pre>void BK(int k)                             //k-poziţia din vector care se completează</pre></em></p>
+
+                <p><em><pre> {int i;</pre></em></p>
+                
+                <p><em><pre>   for (i=1; i&lt;=nr_elemente_Sk; i++)    //parcurge elementele mulţimii <strong>Sk</strong></pre></em></p>
+                
+                <p><em><pre>     { v[k]=i;                             //selectează un element din mulţime</pre></em></p>
+
+                <p><em><pre>       if (validare(k)==1)	             //validează condiţiile de continuare ale problemei</pre></em></p>
+                
+                <p><em><pre>         { if (solutie(k)==1)	             //verifică dacă s-a obţinut o soluţie</pre></em></p>
+                
+                <p><em><pre>              afisare(k);	                 //afişează soluţia</pre></em></p>
+
+                <p><em><pre>           else</pre></em></p>
+                
+                <p><em><pre>              BK(k+1);	                 //reapelează functia pentru poziţia <strong>k+1</strong></pre></em></p>
+
+                <p><em><pre>         }</pre></em></p>
+                
+                <p><em><pre>      }	                                 //dacă nu mai există nici un element neselectat în mulţimea <strong>Sk</strong>,</pre></em></p>
+                
+                <p><em><pre> }	                                     //se închide nivelul de stivă şi astfel se revine pe poziţia  <strong>k-1</strong> a vectorului</pre></em></p>
+
+                <p><em><pre>//execuţia funcţiei se încheie, după ce s-au închis toate nivelurile stivei, înseamnă că în vectorul v nu mai poate fi selectat nici un</pre></em></p>
+                
+                <p><em><pre> element din multimile <strong>Sk</strong></pre></em></p>
+            </div>
+            
+             <h2><em>Exemple de implementare a metodei:</em></h2>
+            
+              <h3><em><strong>1.PERMUTĂRI</strong></em></h3>
+                  
+                   <p class="main_info"><em><span id="first_line"> Să</span> se genereze toate permutările primelor <strong>n</strong> numere naturale.</em></p>
+
+                   <p class="main_info"><em>Vom genera pe rând soluţiile problemei în vectorul <strong>v=(v1,v2,v3,...,vn)</strong>, unde <strong>vk&#8712;Sk</strong>. Să facem următoarele observaţii:</em></p>
+
+                   <p class="main_info"><em><span id="first_line">1.</span>	Pentru această problemă toate mulţimile Sk sunt identice, <strong>Sk={1,2,3,....,n}</strong>. La pasul <strong>k</strong> selectăm un element din mulţimea <strong>Sk</strong>.</em></p>
+            
+                   <p class="main_info"><em><span id="first_line">2.</span>	Întrucât în cadrul unei permutări <strong>elementele nu au voie să se repete</strong> această condiţie reprezentă condiţia de continuare a problemei.</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">3.</span>	Obţinem o soluţie în momentul în care completăm vectorul cu <strong>n</strong> elemente.</em></p>
+
+                  <p class="main_info"><em><strong><span id="first_line">Exemplu</span> pentru n=3	S1= S2= S3={1,2,3}</strong></em></p>
+
+                  <p class="main_info"><em><span id="first_line">(1,2,3)</span>  (1,3,2) (2,1,3) (2,3,1) (3,1,2) (3,2,1)</em></p>
+            
+            <div id="chenar3">
+                <p><em><pre>#include &lt;iostream.h&gt;	//	<strong>PERMUTĂRI</strong></pre></em></p>
+                
+                <p><em><pre>const MAX=20;</pre></em></p>
+                
+                <p><em><pre>int n,v[MAX] ;	//<strong>n</strong>-nr. de elemente, <strong>v[20]</strong>-vectorul în care construim soluţia</pre></em></p>
+                
+                <p><em><pre><strong>int valid(int k);</strong></pre></em></p>
+                
+                <p><em><pre><strong>int solutie(int k);</strong></pre></em></p>
+                
+                <p><em><pre><strong>void afisare(int k);</strong></pre></em></p>
+                
+                <p><em><pre><strong>void BK(int k);</strong></pre></em></p>
+                
+                <p><em><pre><strong>int main()</strong></pre></em></p>
+                
+                <p><em><pre> {cout&lt;&lt;"n= ";cin&gt;&gt;	//se citeşte <strong>n</strong></pre></em></p>
+                
+                <p><em><pre>  BK(1);</pre></em></p>
+                
+                <p><em><pre>  return 0;	                    //apelăm funcţia <strong>BK</strong> pentru completarea poziţiei <strong>1</strong> din vectorul <strong>v</strong></pre></em></p>
+                
+                <p><em><pre> }</pre></em></p>
+                
+                <p><em><pre><strong>void BK(int k)</strong></pre></em></p>
+                
+                <p><em><pre> {int i;	                //i-elementul selectat din multimea <strong>Sk</strong>, trebuie sa fie variabilă locală, pentru a se memora pe stivă</pre></em></p>
+                
+                <p><em><pre>  for (i=1;i&lt;=n;i++)	    //parcurgem elementele mulţimii <strong>Sk</strong></pre></em></p>
+                
+                <p><em><pre>    {v[k]=i;	            //selectăm un element din mulţimea <strong>Sk</strong></pre></em></p>
+                
+                <p><em><pre>      if (valid(k))	        //verificăm dacă eelementul ales îndeplineşte condiiile de continuare</pre></em></p>
+                
+                <p><em><pre>        {if (solutie(k))	//verificăm dacă am obţinut o soluţie</pre></em></p>
+                
+                <p><em><pre>             afisare(k);	//se afişează soluţia obţinută</pre></em></p>
+                
+                <p><em><pre>          else</pre></em></p>
+                
+                <p><em><pre>             BK(k+1);	    //reapemăm funcţia pentru poziţia <strong>k+1</strong> din vectorul <strong>v</strong></pre></em></p>
+                
+                <p><em><pre>        }</pre></em></p>
+                
+                <p><em><pre>    }</pre></em></p>
+                
+                <p><em><pre> }</pre></em></p>
+                
+                <p><em><pre><strong>int valid(int k)</strong>	        //verificăm condiţiile de continuare</pre></em></p>
+                
+                <p><em><pre> {int i;</pre></em></p>
+                
+                <p><em><pre>   for (i=1;i&lt;=k-1;i++)	//comparăm fiecare element din vectorul <strong>v</strong> cu ultimul element selectat</pre></em></p>
+                
+                <p><em><pre>     if (v[i]==v[k])	    //deoarece într-o permutare elementele nu au voie să se repete,</pre></em></p>
+                
+                <p><em><pre>       return 0;	        //returnăm 0 în cazul în care elementul selectat, a mai fost selectat o dată</pre></em></p>
+                
+                <p><em><pre>    return 1;	           //returnăm 1 în cazul în care elementul nu mai apare în vector</pre></em></p>
+                
+                <p><em><pre> }</pre></em></p>
+                
+                <p><em><pre><strong>int solutie(int k)</strong>	       //verificăm dacă am obţinut o soluţie</pre></em></p>
+                
+                <p><em><pre> {if (k==n)	               //am obţinut o permutare, dacă am reuşit să depunem în vector <strong>n</strong> elemente</pre></em></p>
+                
+                <p><em><pre>    return 1;</pre></em></p>
+                
+                <p><em><pre>  return 0;</pre></em></p>
+                
+                <p><em><pre> }</pre></em></p>
+                
+                <p><em><pre><strong>void afisare(int k)</strong>	      //afişează conţinutul vectorului <strong>v</strong></pre></em></p>
+                
+                <p><em><pre> {int i;</pre></em></p>		
+
+                <p><em><pre>    for (i=1;i&lt;=k;i++) cout&lt;&lt;v[i]&lt;&lt;" ";</pre></em></p>
+                
+                <p><em><pre>    cout&lt;&lt;endl;</pre></em></p>
+                
+                <p><em><pre> }</pre></em></p>
+            </div>
+            
+                  <p class="main_info"><em><span id="first_line">Problema</span> generării permutărilor, este cea mai reprezentativă pentru metoda backtracking, ea conţine toate elementele specifice metodei.</em></p>
+
+                  <p class="main_info"><em><span id="first_line">Probleme</span> similare, care solicită determinarea tuturor soluţiilor posibile, necesită doar adaptarea acestui algoritm modificând fie modalitatea de selecţie a elementelor din mulţimea Sk, fie condiţiile de continuare fie momentul obţinerii unei soluţii.</em></p>
+            
+              <h3><em>2.PRODUS CARTEZIAN</em></h3>
+
+                  <p class="main_info"><em><span id="first_line">Se</span> dau <strong>n</strong> mulţimi, ca cele de mai jos:</em></p>
+            
+                  <p class="main_info"><em>S1={1,2,3,...,w1}</em></p>
+            
+                  <p class="main_info"><em>S2={1,2,3,...,w2}</em></p>
+            
+                  <p class="main_info"><em>.........................</em></p>
+            
+                  <p class="main_info"><em>Sn={1,2,3,...,wn}</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">Se</span> cere să se gnereze produsul lor cartezian.</em></p>
+
+                  <p class="main_info"><em>&nbsp;</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">Exemplu:</span></em></p>
+            
+                  <p class="main_info"><em>pemtru n=3 şi urmăroarele mulţimi</em></p>
+            
+                  <p class="main_info"><em>S1={1,2}, w1=2; S2={1,2,3}, w2=3; S3={1,2}, w3=2;</em></p>
+                
+                  <p class="main_info"><em><span id="first_line">Produsul</span> cartezian este:</em></p>
+
+                  <p class="main_info"><em>S1 x S2 x S3 ={ (1,1,1),(1,1,2),(1,2,1),(1,2,2),(1,3,1),(1,3,2),(2,2,1),(2,1,2),(2,2,1),(2,2,2),(2,3,1),(2,3,2)}</em></p>
+
+                  <p class="main_info"><em>Prin urmare o soluţie este un şir de n elemente, fiecare element iєSi, cu i=1,n Să analizăm exemplul de mai sus:</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">1.</span>	La pasul <strong>k</strong> selectăm un element din mulţimea <strong>Sk ={1,2,3,...,wk}</strong>.</em></p>
+
+                  <p class="main_info"><em><span id="first_line">2.</span>	Elementele unei soluţii a produsului cartezian, pot să se repete, pot fi în orice ordine, iar valori străine nu pot apare, deoarece le selectăm doar dintre elementele mulţimii Sk . Prin urmare <strong>nu trebuie să impunem condiţii de continuare</strong>.</em></p>
+
+                  <p class="main_info"><em><span id="first_line">3.</span>	Obţinem o soluţie în momentul în care am completat <strong>n</strong> elemente în vectorul v.</em></p>
+
+                  <p class="main_info"><em><span id="first_line">Vom</span> memora numărul de elemente al fiecăerei mulţimi Sk , într-un vector <strong>w</strong>. Soluţiile le vom construi pe rând în vectorul <strong>v</strong>.</em></p>
+            
+            <div id="chenar4">
+                  <p><em><pre>#include &lt;iostream.h&gt;	//   <strong>PRODUS CARTEZIAN</strong></pre></em></p>
+                
+                  <p><em><pre>#include &lt;fstream.h&gt;</pre></em></p>	
+                
+                  <p><em><pre>const MAX=20;</pre></em></p>
+                
+                  <p><em><pre>int n,v[MAX],w[MAX];	//<strong>n</strong>-nr. de mulţimi, <strong>v</strong>-vectorul soluţie, <strong>w</strong>-conţine nr. de elemente din fiecare mulţime <strong>Sk</strong></pre></em></p>
+                
+                  <p><em><pre><strong>void BK(int k);</strong></pre></em></p>
+
+                  <p><em><pre><strong>void citire();</strong></pre></em></p>
+
+                  <p><em><pre><strong>void afisare(int k);</strong></pre></em></p>
+                
+                  <p><em><pre><strong>int solutie(int k);</strong></pre></em></p>
+                
+                  <p><em><pre><strong>void main()</strong></pre></em></p>
+                
+                  <p><em><pre> { citire();	 //citire date</pre></em></p>
+                
+                  <p><em><pre>   BK(1);	     //apelăm funcţia <strong>BK</strong> pentru selectarea primului element în <strong>v</strong></pre></em></p>
+                
+                  <p><em><pre> }</pre></em></p>
+                
+                  <p><em><pre><strong>void BK(int k)</strong>	//funcţia backtracking</pre></em></p>
+                
+                  <p><em><pre> {int i;</pre></em></p>
+                
+                  <p><em><pre>   for (i=1;i&lt;=w[k];i++)	 //parcurgem mulţimea <strong>Sk ={1,2,3,...,wk}</strong></pre></em></p>
+                
+                  <p><em><pre>     {v[k]=i;	             //selectăm elementul <strong>i</strong> din mulţimea <strong>Sk</strong></pre></em></p>
+
+                  <p><em><pre>                             //<strong>nu avem funcţie de validare- nu avem condiţii de continuare</strong></pre></em></p>
+                
+                  <p><em><pre>      if (solutie(k))	     //verificăm dacă am obţinut o soluţie</pre></em></p>
+                
+                  <p><em><pre>           afisare(k);	     //afişăm soluţia</pre></em></p>
+                
+                  <p><em><pre>        else</pre></em></p>
+                
+                  <p><em><pre>            BK(k+1);	     //reapelăm funcia <strong>BK</strong> pentru completarea poziţiei următoare în vectorul v</pre></em></p>
+                
+                  <p><em><pre>      }	                     //se închide un nivel de stivă si astfel se ajunge la poziţia <strong>k-1</strong>în <strong>v</strong></pre></em></p>
+
+                  <p><em><pre> }</pre></em></p>	
+	
+                  <p><em><pre><strong>void citire()</strong>	        //citirea datelor</pre></em></p>
+                
+                  <p><em><pre> {int i;</pre></em></p>
+                
+                  <p><em><pre>  ifstream f("prod.in");</pre></em></p>
+                
+                  <p><em><pre>    f>>n;	                           //se citeşte numărul de mulţimi</pre></em></p>
+                
+                  <p><em><pre>    for(i=1;i&lt;=n;i++)</pre></em></p>
+                
+                  <p><em><pre>        f>>w[i];	                   //se citeşte numărul de elemente al fiecărei mulţimi</pre></em></p>
+                
+                  <p><em><pre>   f.close();</pre></em></p>	
+                
+                  <p><em><pre> }</pre></em></p>
+                
+                  <p><em><pre><strong>int solutie(int k)</strong>	//funcţia soluţie determină momentul în care se ajunge la o soluţie</pre></em></p>
+                
+                  <p><em><pre> {if (k==n)	                        //obţinem o soluţie dacă am dpus în vectorul <strong>v</strong>, <strong>n</strong> elemente</pre></em></p>
+                
+                  <p><em><pre>      return 1;</pre></em></p>
+                
+                  <p><em><pre>   return 0;</pre></em></p>
+                
+                  <p><em><pre> }</pre></em></p>
+                
+                  <p><em><pre><strong>void afisare(int k)</strong>	//afişează o soluţie</pre></em></p>
+                
+                  <p><em><pre> {int i;</pre></em></p>
+                
+                  <p><em><pre>    for(i=1;i&lt;=k;i++)</pre></em></p>
+                
+                  <p><em><pre>        cout&lt;&lt;v[i]&lt;&lt;" ";</pre></em></p>	
+
+                  <p><em><pre>    cout&lt;&lt;endl;</pre></em></p>	
+                
+                  <p><em><pre> }</pre></em></p>
+            </div>
+            
+              <h3><em>3.ARANJAMENTE</em></h3>
+              
+                  <p class="main_info"><em><span id="first_line">Se</span> citesc n şi p numere naturale cu p&lt;=n. Sa se genereze toate aranjamentle de n elemente luate câte p.</em></p>
+
+                  <p class="main_info"><em><span id="first_line">Exemplu</span> pentru n=3, p=2: (1,2), (1,3), (2,1), (2,3), (3,1), (3,2)</em></p>
+
+                  <p class="main_info"><em>Vom genera pe rând soluţiile problemei în vectorul <strong>v=(v1,v2,v3,...,vn)</strong>, unde <strong>vk&#8712;Sk</strong>. Să facem următoarele observaţii:</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">1.</span>	pentru această problemă toate mulţimile <strong>Sk</strong> sunt identice, <strong>Sk={1,2,3,....,n}</strong>.</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">2.</span>	la pasul k selectăm un element din mulţimea Sk.Întrucât în cadrul unei aranjări, <strong>elementele nu au voie să se repete</strong>. Această condiţie reprezentă condiţia de continuare a problemei.</em></p>
+
+                  <p class="main_info"><em><span id="first_line">3.</span>	Oţinem o soluţie în momentul în care completăm vectorul cu <strong>p</strong> elemente. Să observăm că problema generării aranjamentelor, nu diferă prea mult de problema generării permutărilor. Singura deosebire pe care o sesizăm este aceea că obţinem o soluţie în momentul în care am plasat în vector <strong>p</strong> elemente.</em></p>
+
+                  <p class="main_info"><em><span id="first_line">Prin</span> urmare, în cadrul programului pentru generarea permutărilor trebuie sa modificăm o singură funcţie şi anume funcţia soluţie, astfel:</em></p> 
+            
+            <div id="chenar5">
+                
+                  <p><em><pre><strong>int solutie(int k)</strong>	//verificăm dacă am obţinut o soluţie</pre></em></p>
+
+                  <p><em><pre> {if (k==<strong>p</strong>)             //am obţinut o aranjare, dacă am reuşit să depunem în vector <strong>p</strong> elemente return 1;</pre></em></p>
+
+                  <p><em><pre>    retrurn 1;</pre></em></p>
+                
+                  <p><em><pre>  return 0;</pre></em></p>
+                
+                  <p><em><pre> }</pre></em></p>
+            </div>
+            
+              <h3><em>4.COMBINĂRI</em></h3>
+            
+                  <p class="main_info"><em><span id="first_line">Se</span> citesc n şi p numere naturale cu p&lt;=n. Să se genereze toate combinărilede n elemente luate câte p.</em></p>
+            
+                  <p class="main_info"><em><strong><span id="first_line">Exemplu</span> pentru n=3, p=2</strong>: obţinem (1,2), (1,3), (2,3)</em></p>
+ 
+                  <p class="main_info"><em>Vom genera pe rând soluţiile problemei în vectorul <strong>v=(v1,v2,v3,...,vn)</strong>, unde <strong>vk&#8712;Sk</strong>. Să facem următoarele observaţii:</em></p>
+
+                  <p class="main_info"><em><span id="first_line">1.</span>	Pentru această problemă toate mulţimile <strong>Sk</strong> sunt identice, <strong>Sk={1,2,3,....,n}</strong>. La pasul <strong>k</strong> selectăm un element din mulţimea <strong>Sk</strong>.</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">2.</span>	În cadrul unei combinări elementele nu au voie să se repete.Să mai observăm şi faptul că dacă la un moment dat am generat de exemplu soluţia (1,2), combinarea (2,1) nu mai poate fi luată în considerare, ea nu mai reprezintă o soluţie. Din acest motiv vom considera că elementele vectorului reprezintă o soluţie, numai dacă se află în ordine strict crescătoare.Acestea reprezintă condiţiile de continuare ale problemei.</em></p>
+            
+                  <p class="main_info"><em><span id="first_line">3.</span>	Oţinem o soluţie în momentul în care vectorul conţine <strong>p</strong> elemente.</em></p>
+
+                  <p class="main_info"><em><span id="first_line">Putem</span> genera toate elementele unei combinări, parcurgând mulţimea {1,2,3,...,n}, apoi să verificăm condiţiile de continuare aşa cum am procedat în cazul permutărilor. Putem însă îmbunătăţii timpul de execuţie, selectând din mulţimea {1,2,3,...,n}, la pasul k un element care este în mod obligatoriu mai mare decăt elementul v[k-1], adică i=v[k-1]+1. Ce se întîmplă însă cu primul element plasat în vectorul v? Acest element a fost plasat pe poziţia 1, iar vectorul v deţine şi elementul v[0] în mod implicit în C++. v[0]=0, deoarece vectorul v este o variabilă globală şi se iniţializează automat elementele lui cu 0. În acest fel, impunând aceste restricţii încă din momentul selecţiei unui element, condiţiile de continuare vor fi respectate şi nu mai avem nevoie de funcţia valid.</em></p>
+
+                  <p class="main_info"><em><span id="first_line">Algoritmul</span> a fost substanţial îmbunătăţit, deoarece nu selectăm toate elementele mulţimii şi nu verificăm toate condiţiile de continuare, pentru fiecare element al mulţimii.</em></p>
+            
+            <div id="chenar6">
+                
+                  <p><em><pre>#include &lt;iostream.h&gt;	   //	<strong>COMBINĂRI</strong></pre></em></p>
+
+                  <p><em><pre>const MAX=20;</pre></em></p>
+                
+                  <p><em><pre>int n,p,v[MAX] ;</pre></em></p>
+                
+                  <p><em><pre><strong>int solutie(int k);</strong></pre></em></p>
+                
+                  <p><em><pre><strong>void afisare(int k);</strong></pre></em></p>
+                
+                  <p><em><pre><strong>void BK(int k);</strong></pre></em></p>
+
+                  <p><em><pre><strong>void main()</strong></pre></em></p>
+                
+                  <p><em><pre> { cout&lt;&lt;"n= ";cin&gt;&gt;n;</pre></em></p>
+                
+                  <p><em><pre>   cout&lt;&lt;"p= ";cin&gt;&gt;p;</pre></em></p>
+
+                  <p><em><pre>   BK(1);</pre></em></p>
+                
+                  <p><em><pre> }</pre></em></p>
+
+                  <p><em><pre><strong>void BK(int k)</strong></pre></em></p>
+                
+                  <p><em><pre> {int i;</pre></em></p>
+                
+                  <p><em><pre>   for (i=v[k-1]+1;i&lt;=n;i++)        //la pasul k selectăm din mulţime un element mai mare decât elementul</pre></em></p>
+                
+                  <p><em><pre>      {v[k]=i;	                       //de pe poziţia k-1</pre></em></p>
+                
+                  <p><em><pre>        if (solutie(k))	               //nu este necesar să verificam condiţiile de continuare, ele sunt respectate</pre></em></p>
+                
+                  <p><em><pre>             afisare(k);	           //datorită modului în care am selectat elementele.</pre></em></p>
+
+                  <p><em><pre>         else</pre></em></p>
+                
+                  <p><em><pre>            BK(k+1);</pre></em></p>
+                
+                  <p><em><pre>      }</pre></em></p>
+
+                  <p><em><pre> }</pre></em></p>
+
+                  <p><em><pre><strong>int solutie(int k)</strong></pre></em></p>
+                
+                  <p><em><pre> { if (k==p) return 1;</pre></em></p>
+                
+                  <p><em><pre>  return 0;</pre></em></p>
+                
+                  <p><em><pre> }</pre></em></p>
+
+                  <p><em><pre><strong>void afisare(int k)</strong></pre></em></p>
+                
+                  <p><em><pre> {int i;</pre></em></p>
+
+                  <p><em><pre>   for (i=1;i&lt;=k;i++) cout&lt;&lt;v[i]&lt;&lt;" ";</pre></em></p>
+                
+                  <p><em><pre>   cout&lt;&lt;endl;</pre></em></p>
+                
+                  <p><em><pre> }</pre></em></p>
+            </div>
+            
+              <h3><em>5.SUBMULŢIMI</em></h3>
+             
+                  <p class="main_info"><em><span id="first_line">Să</span> se genereze toate submulţimile mulţimii S={1,2,3, ... ,n}.</em></p>
+
+                  <p class="main_info"><em><span id="first_line">Exemplu:</span> pentru n=3, S={1,2,3}, submulţimile sunt următoarele: Φ-mulţimea vidă,{1},{2},{3},{1,2},{1,3},{2,3},{1,2,3}</em></p>
+
+                  <p class="main_info"><em><span id="first_line">Să</span> observăm că pentru a obţine toate submulţimile unei mulţimi, este suficient să generăm pe rând combinări de n luate câte 1 , combinări de n luate câte 2 ,..., combinări de n luate câte n-1 , pentru mulţimea S={1,2,3, ... ,n}, la care trebuie să adăugăm mulţimea vidă şi mulţimea S.</em></p>
+
+                  <p class="main_info"><em><span id="first_line">În</span> aceste condiţii, este suficient să modificăm doar funcţia principală pentru a genera toate submulţimile şi afişarea datelor ca mulţimi de elemente. Funţiile BK şi soluţie generează în realitate combinări de n luate câte p elemente.</em></p>
+            
+            <div id="chenar7">
+                
+                  <p><em><pre>#include &lt;iostream.h&gt;	             //	<strong>SUBMULŢIMI 1</strong></pre></em></p>
+                
+                  <p><em><pre>const MAX=20;</pre></em></p>
+                
+                  <p><em><pre>int n,p,v[MAX] ;</pre></em></p>
+                
+                  <p><em><pre><strong>int solutie(int k);</strong></pre></em></p>
+                
+                  <p><em><pre><strong>void afisare(int k);</strong></pre></em></p>
+                
+                  <p><em><pre><strong>void BK(int k);</strong></pre></em></p>
+                
+                  <p><em><pre><strong>void main()</strong></pre></em></p>
+                
+                  <p><em><pre> { int i;</pre></em></p>
+                
+                  <p><em><pre>   cout&lt;&lt;"n= ";cin&gt;&gt;n;</pre></em></p>
+                
+                  <p><em><pre>   cout&lt;&lt;"mulimea vida"&lt;&lt;endl;</pre></em></p>
+                
+                  <p><em><pre>   for(p=1;p&lt;n;p++)  BK(1);	                     //generăm combinări de n luate câte p elemente</pre></em></p>
+                
+                  <p><em><pre>   cout&lt;&lt;"{";</pre></em></p>
+                
+                  <p><em><pre>   for(i=1;i&lt;n;i++) cout&lt;&lt;i&lt;&lt;", ";</pre></em></p>
+                
+                  <p><em><pre>   cout&lt;&lt;n&lt;&lt;"}";</pre></em></p>
+
+                  <p><em><pre> }</pre></em></p>
+
+                  <p><em><pre><strong>void BK(int k)</strong></pre></em></p>
+
+                  <p><em><pre> { int i;</pre></em></p>
+
+                  <p><em><pre>   for (i=v[k-1]+1;i&lt;=n;i++) </pre></em></p>
+                
+                  <p><em><pre>     { v[k]=i;</pre></em></p>
+
+                  <p><em><pre>       if (solutie(k)) afisare(k);</pre></em></p>
+
+                  <p><em><pre>         else BK(k+1);</pre></em></p>
+                  
+                  <p><em><pre>     }</pre></em></p>
+
+                  <p><em><pre> }</pre></em></p>
+
+                  <p><em><pre><strong>int solutie(int k)</strong></pre></em></p>
+
+                  <p><em><pre> { if (k==p) return 1;</pre></em></p>
+                
+                  <p><em><pre>   return 0;</pre></em></p>
+
+                  <p><em><pre> }</pre></em></p>
+                
+                  <p><em><pre><strong>void afisare(int k)</strong></pre></em></p>
+                
+                  <p><em><pre> { cout&lt;&lt;"{ ";</pre></em></p>
+
+                  <p><em><pre>   for (int i=1;i&lt;k;i++) cout&lt;&lt;v[i]&lt;&lt;", ";</pre></em></p>
+                
+                  <p><em><pre>   cout&lt;&lt;v[k]&lt;&lt;" }"&lt;&lt;endl;</pre></em></p>
+
+                  <p><em><pre> }</pre></em></p>
+            </div>
+             
+                  <p class="main_info"><em><span id="first_line">Putem</span> construi un algoritm mai eficient pentru generarea tuturor submulţimilor unei mulţimi.</em></p>
+
+                  <p class="main_info"><em><span id="first_line">De</span> exemplu dacă genetăm mulţimile în următoarea ordine: mulţimea vidă, {1}, {1,2}, {1,2,3}, {2}, {2,3}, {3}</em></p> 
+            
+            <div id="chenar8">
+                
+                  <p><em><pre>#include &lt;iostream.h&gt;	        <strong>// SUBMULŢIMI 2</strong></pre></em></p>
+
+                  <p><em><pre>const MAX=20;</pre></em></p>
+                
+                  <p><em><pre>int n,p,v[MAX] ;</pre></em></p>
+
+                  <p><em><pre><strong>int valid(int k);</strong></pre></em></p>
+                
+                  <p><em><pre><strong>int solutie(int k);</strong></pre></em></p>
+                
+                  <p><em><pre><strong>void afisare(int k);</strong></pre></em></p>
+                
+                  <p><em><pre><strong>void BK(int k);</strong></pre></em></p>
+
+                  <p><em><pre><strong>void main()</strong></pre></em></p>
+                
+                  <p><em><pre> { int i;</pre></em></p>
+
+                  <p><em><pre>  cout&lt;&lt;"n= ";cin&gt;&gt;n;</pre></em></p>
+                
+                  <p><em><pre>  cout&lt;&lt;"mulimea vida"&lt;&lt;endl;</pre></em></p>
+                
+                  <p><em><pre>  BK(1);</pre></em></p>
+
+                  <p><em><pre> }</pre></em></p>
+
+                  <p><em><pre><strong>void BK(int k)</strong></pre></em></p>
+                
+                  <p><em><pre> { int i;</pre></em></p>
+
+                  <p><em><pre>   for (i=v[k-1]+1;i&lt;=n;i++)</pre></em></p>
+                
+                  <p><em><pre>     { v[k]=i;</pre></em></p>
+                
+                  <p><em><pre>       afisare(k);</pre></em></p>
+
+                  <p><em><pre>       BK(k+1);</pre></em></p>
+
+                  <p><em><pre>     }</pre></em></p>
+
+                 <p><em><pre> }</pre></em></p>
+            </div>
+            
+        </div>
+        <div id="curiosity">
+            <p id="titlu"><em>  Știați că... </em></p>
+            <p id="aux_info"><em>  C++ este un limbaj de programare general, compilat? Este un limbaj multi-paradigma, cu verificarea statică a tipului variabilelor ce suportă programare procedurală, abstractizare a datelor, programare orientată pe obiecte. În anii 1990, C++ a devenit unul din cele mai populare limbaje de programare comerciale, rămânând astfel până azi. </em></p>
+        </div>
+    </body>
+</html>

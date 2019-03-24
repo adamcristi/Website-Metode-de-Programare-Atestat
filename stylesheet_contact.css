@@ -1,0 +1,184 @@
+body{
+    background-color: lightgray;
+    height: auto;
+    width: 100%;
+    min-width: 1000px;
+}
+
+#header{
+    position:fixed;
+    height: 7%; /*60px*/
+    width: 101%; /*1922px*/
+    /*background-color: black;*/
+    background: linear-gradient( black 92%, darkorange 8%);
+    margin-top: -1%; /*10px*/
+    margin-left: -1%; /*10px*/
+}
+
+#home_button{
+    float: left;
+    position: relative;
+    height: 100%; /*60px*/
+    width: 3.12%; /*60px*/
+    margin-top: 0%;
+    margin-left: 13%; /*250px*/
+    background-color: darkorange;
+}
+
+#home{
+    height: 66.66%; /*40px*/
+    width: 66.66%; /*40px*/
+    margin-left: 16.66%; /*10px*/
+    margin-top: 30%; /*10px*/
+}
+
+.pages{
+    display: inline-block;
+    position: relative;
+    height: 20%; /*30px*/
+    width: 9.88%; /*190px*/
+    /*border: 2px solid gray;*/
+    margin-top: 0.5%;
+    margin-left: 2.9%; /*50px*/
+    text-align: center;
+    padding: 1.25%; /*20px*/
+}
+
+#curent{
+    color: darkorange;
+}
+
+a{
+  text-decoration: none;
+  color: #d9d9d9;
+  font-size: 90%; /*20px*/
+  font-size: 1vw;
+  font-family: Futura,serif;
+}
+
+a:hover{
+    color: #ffb833;
+}
+
+/*#bara{
+    height: 10%; /*5px*/
+    /*width: 100%;
+    /*margin-top: -1%; /*15px*/
+    /*background-color: darkorange;
+}*/
+
+
+#section1{
+    float: left;
+    height: 600px; /*600px*/
+    width: 60%; /*1060px*/
+    /*border: 2px solid black;*/
+    margin-left: 13%; /*240px*/
+    margin-top: 5%; /*40px*/
+}
+
+#inceput{
+    height: 10%; /*75px*/
+    width: 22%; /*250px*/
+    /*border: 2px solid white;*/
+    font-family: Futura,serif;
+}
+
+#nume{
+    height: 8%; /*50px*/
+    width: 30%; /*400px*/
+    /*border: 2px solid white;*/
+    margin-left: 8%; /*100px*/
+    margin-top: 3%; /*30px*/ 
+    font-size: 156.25%; /*25px*/
+    font-size: 1.3vw;
+    font-family: Futura,serif;
+}
+
+span{
+    color: white;
+}
+
+#liceu{
+    height: 8%; /*50px*/
+    width: 45%; /*600px*/
+    /*border: 2px solid white;*/
+    margin-top: -2.5%; /*25px*/
+    margin-left: 26%; /*300px*/
+    font-size: 156.25%; /*25px*/
+    font-size: 1.3vw;
+    color: white;
+    font-family: Futura,serif;
+}
+
+#prof{
+    height: 8%; /*50px*/
+    width: 45%; /*600px*/
+    /*border:2px solid white;*/
+    margin-top: -2.5%; /*25px*/
+    margin-left: 8.75%; /*100px*/
+    font-size: 156.25%; /*25px*/
+    font-size: 1.3vw;
+    font-family: Futura,serif;
+}
+
+#descriere{
+    height: 16%; /*100px*/
+    width: 100%; /*1060px*/
+    /*border: 2px solid white;*/
+    margin-top: 15%; /*75px*/
+    font-size: 156.25%; /*25px*/
+    font-size: 1.3vw;
+    font-family: Futura,serif;
+}
+
+#aliniat{
+    margin-left: 5%; /*50px*/
+    color: black;
+}
+
+#email{
+    height: 10%; /*60px*/
+    width: 5%; /*60px*/
+    /*border: 2px solid white;*/
+    margin-left: 30%; /*475px*/
+    margin-top: -7%; /*85px*/
+}
+
+#gmail{
+    height: 67%; /*40px*/
+    width: 67%; /*40px*/
+    margin-left: 17%; /*10px*/
+    margin-top: 17%; /*10px*/
+}
+
+#facebook{
+    height: 10%; /*60px*/
+    width: 5%; /*60px*/
+    /*border: 2px solid white;*/
+    margin-left: 37.5%; /*550px*/
+    margin-top: -5%; /*60px*/
+}
+
+#fb{
+    height: 67%; /*40px*/
+    width: 67%; /*40px*/
+    margin-left: 17%; /*10px*/
+    margin-top: 17%; /*10px*/
+}
+
+#section2{
+    float: right;
+    margin-right: 3%; /*85px*/
+    margin-top: 7%; /*60px*/
+    /*border: 2px solid white;*/
+    height: 20%;
+    width: 20%;
+    
+}
+
+#photo{
+    height: 100%; /*400px*/
+    width: 75%; /*400px*/
+    border-radius: 100%;
+}
